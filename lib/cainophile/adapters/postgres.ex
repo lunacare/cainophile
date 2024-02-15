@@ -168,6 +168,11 @@ defmodule Cainophile.Adapters.Postgres do
     }
   end
 
+  defp process_message(msg, state) do
+    Logger.debug("Ignoring message: #{inspect(msg)}")
+    state
+  end
+
   # TODO: Typecast to meaningful Elixir types here later
   defp data_tuple_to_map(_columns, nil), do: %{}
 
